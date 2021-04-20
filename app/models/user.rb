@@ -4,5 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_secured_password
+
   has_many :mission
+  has_many :task, through: :mission
 end
