@@ -31,5 +31,8 @@ class MissionController < ApplicationController
     redirect_to mission_path
   end
 
+  def added_on
+    self.created_at.strftime("%m/%d/%Y")
+  end
 
 end
