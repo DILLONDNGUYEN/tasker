@@ -1,0 +1,22 @@
+
+<div class="container">
+
+  <%= form_for(@task) do |t| %>
+
+  <div class="form-group">
+    <%= t.label :description, "Description" %>
+    <%= t.text_field :description, class: "form-control" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= t.label :mission_id, "Select the Mission for this task:" %><br>
+    <%= t.collection_select :mission_id, Mission.all, :id, :name %>
+  </div>
+
+    <div class="actions">
+      <%= t.submit "Submit", class: "btn btn-primary" %>
+    </div>
+
+  <% end  %>
+</div>

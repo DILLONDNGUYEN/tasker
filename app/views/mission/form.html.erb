@@ -1,0 +1,15 @@
+
+
+<%= form_for @project do |t| %>
+  <div class="form-group">
+    <%= t.label :name, "Name" %>
+    <%= t.text_field :name %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= t.submit "Create", class: "btn btn-primary" %>
+  </div>
+
+<% end  %>
