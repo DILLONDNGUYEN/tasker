@@ -26,6 +26,7 @@ class MissionController < ApplicationController
       redirect_to mission_path
     else
       render :edit
+      
     end
   end
 

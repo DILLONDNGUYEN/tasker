@@ -30,6 +30,32 @@ class TaskController < ApplicationController
     end
   end
 
+  def create
+
+    @task = Task.new(task_params)
+
+    if @task.save
+       redirect_to projects_path
+    else
+      render :new
+    end
+  end
+
+  def update
+
+    if @task.update(task_params)
+
+      redirect_to projects_path
+    else
+      render :edit
+    end
+  end
+
+   def destroy
+    @task.destroy
+    redirect_to missions_path
+  end
+
 
 
 end
