@@ -2,7 +2,7 @@
 
   <%= form_for @user, :url => url_for(controller: "sessions", action: "create"), :html => {class: "form-signin"} do |t| %>
     <div class="form-group">
-      <%= t.label :email, "E-mail" %><br>
+      <%= t.label :email, "E-Mail" %><br>
       <%= t.text_field :email, class: "form-control" %>
     </div>
 

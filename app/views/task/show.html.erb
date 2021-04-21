@@ -1,0 +1,22 @@
+<% if @user %>
+<div class="container">
+  <h1>Hello, <%= @user.username if @user%>  </h1><br>
+  <h2>Tasks:</h2><br>
+  <%= link_to "New tasks", new_user_task_path(@user) %>
+  <br><br>
+</div>
+<% end  %>
+
+<div class="container">
+  <%= render 'tasklist', :locals => {:@tasks => @tasks} %>
+</div>
+
+
+<br><br>
+
+<div class="container">
+
+  <h2>Completed Tasks</h2>
+
+  <%= render 'completed', :locals => {:@tasks => @tasks} %>
+</div>
