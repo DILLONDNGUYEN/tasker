@@ -1,0 +1,11 @@
+<h1>
+<%= @mission.name %>
+</h1>
+
+<%= link_to "Edit Mission", edit_mission_path(@mission) %>
+
+<%=   link_to 'Delete Mission', @mission, method: :delete, data: { confirm: "Are you sure?" } %> 
+
+<% tasks = @mission.tasks %>
+
+<%= render partial: 'tasks', :locals => {:@tasks => tasks}%>
