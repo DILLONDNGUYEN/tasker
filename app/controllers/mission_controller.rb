@@ -7,6 +7,10 @@ class MissionController < ApplicationController
     @mission = Mission.all
   end
 
+  def show
+    @task = @mission.task 
+  end
+
   def create
     @mission = Mission.new(mission_params)
     if @mission.save
