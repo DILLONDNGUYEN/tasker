@@ -1,0 +1,15 @@
+
+
+
+<h1>Welcome, <%= @user.username %>  </h1>
+
+<h2>These are your Missions:</h2>
+
+<ul>
+  <% @mission.all.each do |mission| %>
+
+    <li><%= mission.description %></li>
+  <% end  %>
+</ul>
+
+<%= link_to "All Missions and Tasks", missions_path %>
