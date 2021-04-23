@@ -1,6 +1,6 @@
-class TaskController < ApplicationController
+class TasksController < ApplicationController
 
-  before_action :require_login
+before_action :require_login
   before_action :set_task, only: [:edit, :update, :destroy, :complete]
 
 
@@ -26,7 +26,7 @@ class TaskController < ApplicationController
         flash[:notice] = "Can't Do that"
       end
     else
-      @tasks = Task.all
+      @tasks = Tasks.all
     end
   end
 
@@ -35,7 +35,7 @@ class TaskController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-       redirect_to mission_path
+       redirect_to missions_path
     else
       render :new
     end
@@ -45,7 +45,7 @@ class TaskController < ApplicationController
 
     if @task.update(task_params)
 
-      redirect_to mission_path
+      redirect_to missions_path
     else
       render :edit
     end
@@ -53,11 +53,9 @@ class TaskController < ApplicationController
 
    def destroy
 
-    @task.destroy
+    @tasks.destroy
 
     redirect_to missions_path
   end
-
-
 
 end
