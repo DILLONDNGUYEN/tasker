@@ -1,6 +1,8 @@
 class Mission < ApplicationRecord
+  
   belongs_to :user
-  has_many :task
+  has_many :tasks
 
+  validates :name, presence: true
   
 end

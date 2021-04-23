@@ -1,6 +1,6 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
-  def index
+def index
     @user = User.all
   end
 
@@ -22,9 +22,5 @@ class UserController < ApplicationController
   def show
     @user = User.find_by(id: params[:id]) 
   end
-
-  
-  end
-
 
 end
