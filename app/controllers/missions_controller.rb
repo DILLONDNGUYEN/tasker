@@ -1,4 +1,4 @@
-class MissionController < ApplicationController
+class MissionsController < ApplicationController
 
   before_action :authenticate
   before_action :set_mission, only: [:show, :edit, :update, :destroy]
@@ -36,8 +36,5 @@ class MissionController < ApplicationController
     redirect_to mission_path
   end
 
-  def added_on
-    self.created_at.strftime("%m/%d/%Y")
-  end
 
 end
