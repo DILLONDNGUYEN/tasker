@@ -2,8 +2,8 @@ class SessionsController < ApplicationController
 
 
   def new
-    if logged_in
-      redirect_to mission_path
+    if logged_in?
+      redirect_to missions_path
       flash[:notice] = "You are already logged in."
     else
       @user = User.new
@@ -11,13 +11,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
+    user = User.find_by(email: params[:user][:email])
+    #byebug
+    if user && user.authenticate(params[:user][:password])
       log_in(user)
       flash[:success] = "Logged in!"
-      redirect_to mission_path
+      redirect_to missions_path
     else
-      flash[:error] = "Something Wrong Happened, Please Try Again."
+      flash[:error] = "An Error Occurred, Please Try Again."
       redirect_to login_path
     end
   end
