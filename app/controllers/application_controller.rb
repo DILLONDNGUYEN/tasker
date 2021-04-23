@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
     def authenticate
       if !logged_in? || current_user.nil?
-        redirect '/login'
+        redirect_to login_path
       end
     end
 

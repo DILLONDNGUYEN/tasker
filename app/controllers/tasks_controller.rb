@@ -8,7 +8,7 @@ before_action :require_login
     @task = Task.new(task_params)
 
     if @task.save
-       redirect_to mission_path
+       redirect_to missions_path
     else
       render :new
     end
@@ -22,7 +22,7 @@ before_action :require_login
         @user = User.find(params[:user_id])
         @tasks = @user.tasks
       else
-        redirect_to mission_path
+        redirect_to missions_path
         flash[:notice] = "Can't Do that"
       end
     else

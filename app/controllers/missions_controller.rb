@@ -4,17 +4,17 @@ class MissionsController < ApplicationController
   before_action :set_mission, only: [:show, :edit, :update, :destroy]
 
   def index
-    @mission = Mission.all
+    @missions = Mission.all
   end
 
   def show
-    @task = @mission.task 
+    @task = @mission.tasks
   end
 
   def create
     @mission = Mission.new(mission_params)
     if @mission.save
-      redirect_to mission_path
+      redirect_to missions_path
     else
       render :new
     end
@@ -23,7 +23,7 @@ class MissionsController < ApplicationController
   def update
 
     if @mission.update(mission_params)
-      redirect_to mission_path
+      redirect_to missions_path
     else
       render :edit
       
@@ -33,7 +33,7 @@ class MissionsController < ApplicationController
   def destroy
     @mission = Mission.find(params[:id])
     @mission.destroy
-    redirect_to mission_path
+    redirect_to missions_path
   end
 
 
