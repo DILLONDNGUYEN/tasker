@@ -2,7 +2,7 @@
 <%= @mission.name %>
 </h1>
 
-<%= link_to "Edit Mission", edit_mission_path(@mission) %>
+<%= link_to "Edit Mission", edit_missions_path(@mission) %>
 
 <%= link_to 'Delete Mission', @mission, method: :delete, data: { confirm: "Are You Sure?" } %> 
 

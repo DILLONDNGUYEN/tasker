@@ -28,15 +28,15 @@
           </li>
 
             <li class="nav-item">
-            <a class="nav-link" href="<%= missions_path%>">Home</a>
+            <a class="nav-link" href="<%=missions_path%>">Home</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="<%= new_missions_path %>">Create New Mission</a>
+            <a class="nav-link" href="<%=new_mission_path %>">Create New Mission</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="<%=tasks_path(current_user) %>">Tasks</a>
+            <a class="nav-link" href="<%=task_path %>">Tasks</a>
           </li>
 
           <li class="nav-item">
@@ -51,10 +51,12 @@
       </div>
     </nav>
 
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
 
-
-     <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    
     <%= yield %>
   </body>
 </html>
+<%#  %>
