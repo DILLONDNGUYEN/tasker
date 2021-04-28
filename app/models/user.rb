@@ -4,6 +4,8 @@ class User < ApplicationRecord
 
   has_many :missions
   has_many :tasks, through: :missions
+  has_many :user_missions
+  has_many :missions, through: :user_missions
 
   #validations for user
   validates :email, :username, :password, presence: true
