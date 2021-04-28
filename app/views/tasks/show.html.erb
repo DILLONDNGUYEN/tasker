@@ -8,7 +8,7 @@
 <% end  %>
 
 <div class="container">
-  <%= render partial: 'tasklist', :locals => {:@tasks => @tasks} %>
+  <%= render partial: 'tasklist', :locals => {:@task => @task} %>
 </div>
 
 
@@ -18,5 +18,5 @@
 
   <h2>Completed Tasks</h2>
 
-  <%= render 'completed', :locals => {:@tasks => @tasks} %>
+  <%= render 'completed', :locals => {:@task => @task} %>
 </div>

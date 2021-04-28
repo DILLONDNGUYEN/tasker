@@ -1,7 +1,7 @@
 class MissionsController < ApplicationController
 
   before_action :authenticate
-  before_action :set_mission, only: [:show, :edit, :update, :destroy]
+  before_action :find_mission, only: [:show, :edit, :update, :destroy, :redirect_not_owner]
   before_action :redirect_not_owner, only: [:edit, :update, :destroy]
 
   def index
@@ -15,7 +15,7 @@ class MissionsController < ApplicationController
   end
 
   def show
-    @task = @mission.tasks
+   
   end
   
   def new
@@ -33,13 +33,15 @@ class MissionsController < ApplicationController
       render :new
     end
   end
+
+  
+ 
   
   def edit
-    
   end
   
+
   def update
-    
     if @mission.update(mission_params)
       redirect_to missions_path
     else
@@ -64,6 +66,10 @@ class MissionsController < ApplicationController
   
   private
   
+  def find_mission
+     @mission = Mission.find(params[:id])
+  end
+
   def redirect_not_owner
     if current_user != @mission.creator
       redirect_to mission_path(@mission)

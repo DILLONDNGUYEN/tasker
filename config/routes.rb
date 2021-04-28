@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :tasks
-  resources :missions, only: [:index, :new, :create]
+  resources :missions
   resources :testers
   resources :users do 
   resources :missions, shallow: true
