@@ -1,25 +1,29 @@
 class ApplicationController < ActionController::Base
 
-    def log_in(user)
-      session[:user_id]= user.id
-    end
+  include ApplicationHelper
+  # helper_method :log_in, :logged_in?, :current_user, :authenticate, :authorized?
 
-    def logged_in?
-      !!current_user
-    end
+  private
+    # def log_in(user)
+    #   session[:user_id]= user.id
+    # end
+
+    # def logged_in?
+    #   !!current_user
+    # end
     
-    def current_user
-      @current_user = User.find_by(id: session[:user_id])
-    end
+    # def current_user
+    #   @current_user = User.find_by(id: session[:user_id])
+    # end
 
-    def authenticate
-      if !logged_in? || current_user.nil?
-        redirect_to login_path
-      end
-    end
+    # def authenticate
+    #   if !logged_in? || current_user.nil?
+    #     redirect_to login_path
+    #   end
+    # end
 
-    def authorized?
-      !!logged_in? && !current_user.nil?
-    end
+    # def authorized?
+    #   !!logged_in? && !current_user.nil?
+    # end
 
 end

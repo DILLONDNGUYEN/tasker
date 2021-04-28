@@ -4,11 +4,22 @@ class MissionsController < ApplicationController
   before_action :set_mission, only: [:show, :edit, :update, :destroy]
 
   def index
+    if params[:user_id] && @user= User.find_by_id(params[:user_id])
+      
+      @missions = @user.missions
+      
+    else
     @missions = Mission.all
+    end
   end
 
   def show
     @task = @mission.tasks
+  end
+  
+  def new
+    @mission = Mission.new
+    
   end
 
   def create
