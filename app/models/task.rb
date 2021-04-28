@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
 
-  belongs_to :missions
+  belongs_to :mission
 
   validates :description, presence: true
 

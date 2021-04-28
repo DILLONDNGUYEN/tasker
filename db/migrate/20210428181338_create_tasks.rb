@@ -1,8 +1,11 @@
 class CreateTasks < ActiveRecord::Migration[6.0]
   def change
     create_table :tasks do |t|
-      t.string :description
-      t.integer :misson_id
+      
+      t.belongs_to :mission 
+      
+      t.text :description
+      
 
       t.timestamps
     end

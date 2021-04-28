@@ -4,8 +4,17 @@
 
 <%= link_to "Edit Mission", edit_missions_path(@mission) %>
 
-<%= link_to 'Delete Mission', @mission, method: :delete, data: { confirm: "Are You Sure?" } %> 
+<%= button_to 'Delete Mission', @mission, method: :delete, data: { confirm: "Are You Sure?" } %> 
 
 <% tasks = @mission.tasks %>
 
 <%= render partial: 'tasks', :locals => {:@task => tasks}%>
+
+<br><br>
+
+<div class="container">
+
+  <h2>Completed Missions</h2>
+
+  <%= render 'completed', :locals => {mission: => @mission} %>
+</div>

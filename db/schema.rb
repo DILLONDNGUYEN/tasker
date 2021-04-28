@@ -10,19 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_23_044822) do
+ActiveRecord::Schema.define(version: 2021_04_28_181840) do
 
   create_table "missions", force: :cascade do |t|
+    t.integer "creator_id"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["creator_id"], name: "index_missions_on_creator_id"
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "description"
-    t.integer "misson_id"
+    t.integer "mission_id"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["mission_id"], name: "index_tasks_on_mission_id"
+  end
+
+  create_table "user_missions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "mission_id", null: false
+    t.text "comment"
+    t.datetime "completed_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["mission_id"], name: "index_user_missions_on_mission_id"
+    t.index ["user_id"], name: "index_user_missions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,4 +47,7 @@ ActiveRecord::Schema.define(version: 2021_04_23_044822) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "missions", "users", column: "creator_id"
+  add_foreign_key "user_missions", "missions"
+  add_foreign_key "user_missions", "users"
 end

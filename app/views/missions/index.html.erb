@@ -2,9 +2,10 @@
 
 <%@missions.each do |mission|%>
 
+
 <div class="container">
 
-<h2> <% link_to "#{mission}.name", missions_path(mission)%></h2>
+<h2> <%= link_to mission.name, missions_path(mission)%></h2>
 
 </div>
 
