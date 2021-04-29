@@ -1,10 +1,12 @@
 
 <div class="container">
 
+<h1>Tasks
+</h1>
   <%=form_for @task do |t| %>
 
   <div class="form-group">
-    <%= t.label :description, "Description" %>
+    <%= t.label :description, "Description of Task" %>
     <%= t.text_field :description, class: "form-control" %>
   </div>
 
