@@ -2,6 +2,7 @@ class MissionsController < ApplicationController
 
   before_action :authenticate
   before_action :find_mission, only: [:show, :edit, :update, :destroy, :redirect_not_owner]
+  # before_action :task_params, except:[:show]
   before_action :redirect_not_owner, only: [:edit, :update, :destroy]
 
   def index
@@ -15,7 +16,7 @@ class MissionsController < ApplicationController
   end
 
   def show
-   
+    #  @task = @mission.tasks.build(task_params)
   end
   
   def new
@@ -25,7 +26,6 @@ class MissionsController < ApplicationController
   
   def create
     @mission = Mission.new(mission_params)
-    # binding.pry
     @mission.creator = current_user
     if @mission.save
       redirect_to missions_path

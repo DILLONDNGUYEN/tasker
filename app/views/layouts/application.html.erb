@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tasker</title>
+    <title>Tasker bold</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +11,7 @@
     <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body class = "text center" >
+  <center>
   <%# #navbar %>
 <%#user needs to be signed in in order to see the rest of the navbar%>
 
@@ -44,9 +45,9 @@
             <a class="nav-link" href="<%=new_task_path %>">Tasks</a>
           </li>
 
-          <li class="nav-item">
+          <%# <li class="nav-item">
             <a class="nav-link" href="/tasks">All Tasks</a>
-          </li>
+          </li> %>
 
           <li class="nav-item">
              <%= button_to 'Logout', logout_path, method: :delete, class:'nav-link logout-btn' %>
@@ -76,5 +77,6 @@
 
    
     <%= yield %>
+    </center>
   </body>
 </html>
