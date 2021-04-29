@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   before_action :find_task, except: [:new, :create]
-  before_action :set_task, only: [:edit, :update, :destroy, :complete]
+  # before_action :set_task, only: [:edit, :update, :destroy, :complete]
  
 
   def index
@@ -18,7 +18,7 @@ class TasksController < ApplicationController
 
 
   def create
-
+# binding.pry
     @task = Task.new(task_params)
     # @task.user = current_user
     if @task.save
@@ -44,9 +44,10 @@ class TasksController < ApplicationController
     end
   end
 
+
    def destroy
 
-    @tasks.destroy
+    @task.destroy
 
     redirect_to missions_path
   end
@@ -59,7 +60,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:description)
+    params.require(:task).permit(:description, :mission_id)
   end
 
 

@@ -1,23 +1,24 @@
 
 <div class = "container">
 
-<h1>
-<%= @mission.name %>
-</h1>
-
-  <%= link_to "Edit Mission", edit_mission_path(@mission) %>
+  <h1>
+    <%= @mission.name %>
+  </h1>
 
 
+    <%= link_to "Edit Mission", edit_mission_path(@mission) %>
 
-  <%= button_to 'Delete Mission', @mission, method: :delete, data: { confirm: "Are You Sure?" } %> 
 
-  <%= button_to "Completed", @mission, method: :completed, data: {confirm: "Are You Sure?"}%>
 
-<% @mission.tasks.each do |t|%>
+    <%= button_to "Completed", @mission, method: :completed, data: {confirm: "Are You Sure?"}%>
 
-<h3>
-<%= t.description%>
-</h3>
+      <% @mission.tasks.each do |t|%>
+
+  <h4>
+  <%= t.description%>
+  </h4>
+    <%= link_to "Edit Tasks", edit_task_path(t) %>
+    <%= button_to '🗑️', t, method: :delete, data: { confirm: "Are You Sure?" } %> 
 
 <%end%>
 </div>
