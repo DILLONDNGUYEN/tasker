@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tasker bold</title>
+    <title>Tasker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,7 +17,7 @@
 
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-lg-center" >
     <a class="navbar-brand">Tasker</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" courier-controls="navbarNavDropdown" courier-expanded="false" courier-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -59,12 +59,10 @@
 
 
 
-    <% if flash[:notice] %>
+   <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
     <% end %>
 
-
- 
 
    
     <%= yield %>

@@ -17,4 +17,14 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { in: 6..20 }, confirmation: true, unless: ->(u){ u.password.blank? }
 
 
+    def self.from_omniauth
+      self.find_or_create_by(provider: auth["provider"], user_id: auth["user_id"]) do |t|
+        t.email = auth['info']['email']
+        pw = SecureRandom.hex(20)
+        t.password = pw
+        t.password_confirmation=pw
+        t.username = auth['info']['name'].downcase.gsub(" ", "_")
+      end
+    end
+
 end

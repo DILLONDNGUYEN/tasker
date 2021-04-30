@@ -12,9 +12,11 @@
     </div>
 
     <div class="actions">
-      <%= t.submit "Sign In", class: "btn btn-primary" %>
+      <%= t.submit "Log In", class: "btn btn-primary" %>
     </div>
 
+    <%= link_to 'Log in using Google', '/auth/google_oauth2', method: :post, class: "btn btn-secondary" %>
+    
   <% end  %>
 
 </div>

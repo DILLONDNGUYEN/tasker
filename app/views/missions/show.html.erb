@@ -7,30 +7,30 @@
 
 
     <%= link_to "Edit Mission", edit_mission_path(@mission) %>
+    <%= button_to "Delete", @mission, method: :delete, data: {confirm: "Are You Sure?"} %>
 
-
-
-    <%= button_to "Completed", @mission, method: :completed, data: {confirm: "Are You Sure?"}%>
-
-      <% @mission.tasks.each do |t|%>
+    <% @mission.tasks.each do |t|%>
 
   <h4>
   <%= t.description%>
   </h4>
     <%= link_to "Edit Tasks", edit_task_path(t) %>
+
     <%= button_to '🗑️', t, method: :delete, data: { confirm: "Are You Sure?" } %> 
 
-<%end%>
+    <%end%>
 </div>
+        
 
-
+  
 <br><br>
 
-<div class="container">
+<%# <div class="container">
 
 
 
   <h2>Completed Missions</h2>
+    <%= button_to "Completed", @mission, method: :completed, data: {confirm: "Are You Sure?"}%>
 
   <%# <%= render partial: '/completed', :locals => {mission: => @mission} %> 
-</div>
+<%# </div> %>

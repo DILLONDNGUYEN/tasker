@@ -16,7 +16,14 @@ class MissionsController < ApplicationController
   end
 
   def show
-    #  @task = @mission.tasks.build(task_params)
+    # binding.pry
+    # @mission.tasks.build(description: params[:description])
+    # if @mission.save
+    #    redirect_to mission_path
+    # else
+    #   render :new
+   
+    #  end
   end
   
   def new
@@ -52,6 +59,7 @@ class MissionsController < ApplicationController
   
   def completed
     @mission.update(completed: true)
+    redirect_to mission_path
   end
   
   def destroy

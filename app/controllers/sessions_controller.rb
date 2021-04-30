@@ -23,33 +23,36 @@ class SessionsController < ApplicationController
     end
   end
 
+  def googleomniauth 
+    access_token = request.env['omniauth.auth']
+    @user = User.from_omniauth(auth_hash)
+    @user.google_token = access_token.credentials.token
+    refresh_token = access_token.credentials.refresh_token
+    @user.google_refresh_token = refresh_token if refresh_token.present?
+      if @user.save
+        flash[:success] = "Hello #{@user.username}"
+        log_in(@user)
+        redirect_to mission_path
+      else
+        flash[:error] = "Something Wrong Happened, try again"
+        redirect_to login_path  
+    end
+  end
 
+
+  
+  
   def destroy
     session.delete(:user_id)
     redirect_to root_path
   end
-  # get '/login' do 
-  #     if logged_in?
-  #       user_id = session[:user_id]
-        
-  #       redirect to "users/#{user_id}"
-  #     else
-  #       erb:"sessions/login"
-  #     end
-  #   end
-
-
-  # post '/login' do
-     
-  #     user = User.find_by(:email => params[:email])
-  #     if user && user.authenticate(params[:password])
-  #       session[:user_id] = user.id
-  #       redirect "users/#{user.id}"
-  #     else
-  #       flash[:error] = "User not found, please Sign up First!"
-  #       redirect to '/users/new'
-  #     end
-  #   end
+  
+  
+  private
+  
+    def auth_hash
+      request.env['omniauth.auth']
+    end
 
   
 end
