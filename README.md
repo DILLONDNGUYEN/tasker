@@ -2,25 +2,14 @@
 
 This is a Simple Task manager app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Clone this repo
+bundle install to install all the gems and dependecies
+rake db:migrate and rake db:seed to set up the database
+rails s to start the rails server
+Navigate to localhost:3000 to begin making tasks
 
-Things you may want to cover:
+Usage
 
-- Ruby version
+Click Create Missions to create a Mission
 
-- System dependencies
-
-- Configuration
-
-- Database creation
-
-- Database initialization
-
-- How to run the test suite
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
-- ...
+Click Make a Task to make, describe, and assign a task to each mission
