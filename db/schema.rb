@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_181840) do
+ActiveRecord::Schema.define(version: 2021_05_02_222737) do
 
   create_table "missions", force: :cascade do |t|
     t.integer "creator_id"
@@ -43,8 +43,11 @@ ActiveRecord::Schema.define(version: 2021_04_28_181840) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.string "provider"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "google_token"
+    t.string "google_refresh_token"
   end
 
   add_foreign_key "missions", "users", column: "creator_id"

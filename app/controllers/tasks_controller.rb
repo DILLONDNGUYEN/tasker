@@ -48,7 +48,6 @@ class TasksController < ApplicationController
    def destroy
 
     @task.destroy
-# binding.pry
     redirect_to mission_path(@task.mission)
   end
 
