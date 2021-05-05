@@ -17,17 +17,17 @@
 <%end%>
   
 
-            <h2>Completed</h2>
+    <h1>Completed</h1>
 
-                <div class="container">
+        <div class="container">
 
-                  <% @completed_missions.each do |mission|%>
-            <%#binding.pry%> 
+          <% @completed_missions.each do |mission|%>
+    <%#binding.pry%> 
 
-                  <h4> <%= link_to mission.name, mission_path(mission)%> </h4>
-          
-                  <%end%>
-                </div>    
+          <h6> <%= link_to mission.name, mission_path(mission)%> </h6>
+  
+          <%end%>
+        </div>    
 
   
 
