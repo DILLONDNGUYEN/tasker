@@ -11,6 +11,13 @@ class Mission < ApplicationRecord
 
   # accepts_nested_attributes_for :task
   
-  scope :completed_missions, -> {where(completed: true)}
+  scope :completed, -> {where(completed: true)}
+  scope :incompleted, -> {where(completed: false)}
+
+
+  def  format_completed_button
+    self.completed ? "Not Completed" : "Completed"
+  end
+
 
 end

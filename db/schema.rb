@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2021_05_02_222737) do
   create_table "missions", force: :cascade do |t|
     t.integer "creator_id"
     t.string "name"
+    t.boolean "completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["creator_id"], name: "index_missions_on_creator_id"

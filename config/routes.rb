@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: "sessions#googleomniauth"
   get 'auth/failure', to: redirect("/login")
 
+  patch '/completed', to: "missions#completed", as: "completed"
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"

@@ -29,6 +29,7 @@ private
 
 def user_params
   params.require(:user).permit(:username, :password, :password_confirmation, :email)
+  # params.permit(:user, :username, :password, :password_confirmation, :email, :authenticity_token, :mission, :commit)
 end
 
 

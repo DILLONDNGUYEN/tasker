@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :missions, through: :user_missions
   has_many :tasks, through: :missions
   has_many :created_missions, class_name: "Mission", foreign_key: :created_id
-
+  
 
   #validations for user
 

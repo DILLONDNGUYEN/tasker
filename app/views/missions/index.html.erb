@@ -3,14 +3,31 @@
 
   <h1>Missions</h1>
 
-    <%@missions.each do |mission|%>
+    <%@incompleted_missions.each do |mission|%>
 
 
   <div class="container">
 
-    <h2> <%= link_to mission.name, mission_path(mission)%></h2>
+    <h2> <%= link_to mission.name, mission_path(mission)%> </h2>
+
+   
 
   </div>
 </div>
-
 <%end%>
+  
+
+            <h2>Completed</h2>
+
+                <div class="container">
+
+                  <% @completed_missions.each do |mission|%>
+            <%#binding.pry%> 
+
+                  <h4> <%= link_to mission.name, mission_path(mission)%> </h4>
+          
+                  <%end%>
+                </div>    
+
+  
+

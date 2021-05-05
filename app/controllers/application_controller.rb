@@ -13,7 +13,9 @@ class ApplicationController < ActionController::Base
     end
     
     def current_user
+      # @current_user = params.permit(:authenticity_token, :mission, :commit)
       @current_user = User.find_by(id: session[:user_id])
+      #  binding.pry
     end
 
     def authenticate

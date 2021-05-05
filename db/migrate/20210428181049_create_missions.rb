@@ -2,10 +2,9 @@ class CreateMissions < ActiveRecord::Migration[6.0]
   def change
     create_table :missions do |t|
       
-      t.belongs_to :creator, foreign_key: {to_table: :users}
-      
+      t.belongs_to :creator, foreign_key: {to_table: :users}    
       t.string :name
-      
+      t.boolean :completed, default: false
 
       t.timestamps
     end
